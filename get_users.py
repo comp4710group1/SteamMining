@@ -21,8 +21,8 @@ if os.stat('./output.csv').st_size == 0:
 #steamID = 92171249
 steamID = 92100009
 #Total API calls = ID_INCREMENT * NUM_THREADS
-ID_INCREMENT = 10
-NUM_THREADS = 10
+ID_INCREMENT = 200
+NUM_THREADS = 5
 
 def api_call(self):
     current_id = self.starting_id
