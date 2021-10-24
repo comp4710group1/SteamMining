@@ -79,7 +79,11 @@ class my_thread (threading.Thread):
         print ('Exiting ' + self.name)
 
     def increment(self):
-        self.starting_id = f.readline()
+        self.starting_id = f.readline().strip()
+
+        while not self.starting_id.isdigit():
+            self.starting_id = f.readline().strip()
+
 
 #Main
 if __name__ == "__main__":
@@ -87,7 +91,7 @@ if __name__ == "__main__":
 
     #Making NUM_THREADS worker threads
     for count in range(NUM_THREADS):
-        workers.append(my_thread(count, 'thread {}'.format(count), f.readline()))
+        workers.append(my_thread(count, 'thread {}'.format(count), f.readline().strip()))
         
     #Start each worker "run"
     for x in workers:
