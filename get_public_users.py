@@ -18,7 +18,7 @@ if os.stat('./public_ids.csv').st_size == 0:
     writer.writerow(header)
 
 #Starter steamID for increment
-steamID = 76561198041000000 #add 1 000 000 the next time you run
+steamID = 76561198046000000 #add 1 000 000 the next time you run
 #Total API calls = NUM_THREADS * 100(due to 100 checks per call)
 ID_INCREMENT = 100 #DONT CHANGE
 
