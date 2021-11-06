@@ -12,7 +12,7 @@ import threading
 apiKey = "C4364E1FFD0AFF0CA0FD74ACBD3ADBFF"
 
 #Headers for the CSV file
-header = ['steamID', 'appID', 'time']
+header = ['steamID', 'appID', 'name', 'time']
 
 #Opening file and file writer
 f = open('./public_ids.csv', 'r')
@@ -25,16 +25,17 @@ if os.stat('./game_list.csv').st_size == 0:
 
 #Starter steamID for increment
 #steamID = 92171249
-steamID = 92100009
+#steamID = 92100009
 #Total API calls = API_CALLS_PER_THREAD * NUM_THREADS
-API_CALLS_PER_THREAD = 200
-NUM_THREADS = 5
+API_CALLS_PER_THREAD = 100
+NUM_THREADS = 10
 
 def api_call(self):
     #Loop through i next ID's
     for i in range(API_CALLS_PER_THREAD):
+        #include_played_free_games=true gets free games, can be removed if we only want to do paid games
         try:
-            response = requests.get('https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key={}&steamid={}&format=json'.format(apiKey,self.starting_id))
+            response = requests.get('https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key={}&steamid={}&include_appinfo=true&include_played_free_games=true&format=json'.format(apiKey,self.starting_id))
         except BaseException as e:
             print(str(e))
         if response.status_code == 200:
@@ -45,12 +46,16 @@ def api_call(self):
                 #grab game info for steam user
                 for game in data['response']['games']:
                     appID = game["appid"]
+                    name = game["name"]
+                    #Encoding and decoding the name to remove unused ascii characters
+                    name = name.encode("ascii", "ignore")
+                    name = name.decode()
                     time = '{:.2f}'.format(game["playtime_forever"] / 60)
 
                     #Checking if the games play time is > 10 hours to eliminate owned but not played games
                     if float(time) > 10:
                         #Formatting data
-                        data = [int(self.starting_id), appID, time]
+                        data = [int(self.starting_id), appID, name, time]
                         #Writing data row to the CSV file
                         writer.writerow(data)
             else:
