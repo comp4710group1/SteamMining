@@ -9,14 +9,14 @@ import threading
 
 
 #API Key
-apiKey = "203D1B12FF0FE7CD49A5AA30BE98C453"
+apiKey = "09FEA56EF1B8EDD4A8602AC5AB529C72" # probably change this to your own api key before you start running
 
 #Headers for the CSV file
 header = ['steamID', 'appID', 'name', 'time']
 
 #Opening file and file writer
 f = open('./public_ids.csv', 'r')
-for i in range (50000):
+for i in range (130000): #increment by 10000 before running
     next(f)
 
 f2 = open('./game_list.csv', 'a', newline='')
@@ -30,8 +30,8 @@ if os.stat('./game_list.csv').st_size == 0:
 #steamID = 92171249
 #steamID = 92100009
 #Total API calls = API_CALLS_PER_THREAD * NUM_THREADS
-API_CALLS_PER_THREAD = 500
-NUM_THREADS = 20
+API_CALLS_PER_THREAD = 200
+NUM_THREADS = 50
 
 def api_call(self):
     #Loop through i next ID's
