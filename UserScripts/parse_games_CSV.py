@@ -17,6 +17,7 @@ for row in csvreader:
     #If the steamID already exists in the dictionary
     if(steamID in output):
         output[steamID].append(appID)
+        #TODO games exist already due to duplicate public IDs
     # #Add new steamID to the dictionary
     else:
         output[steamID] = apps
