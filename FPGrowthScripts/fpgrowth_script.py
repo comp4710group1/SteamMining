@@ -1,6 +1,5 @@
 from fpgrowth import fpgrowth
 from pprint import pprint
-import csv
 
 item_set_list= []
 
