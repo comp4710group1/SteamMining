@@ -9,14 +9,14 @@ import threading
 
 
 #API Key
-apiKey = "09FEA56EF1B8EDD4A8602AC5AB529C72" # probably change this to your own api key before you start running
+apiKey = "203D1B12FF0FE7CD49A5AA30BE98C453" # probably change this to your own api key before you start running
 
 #Headers for the CSV file
 header = ['steamID', 'appID', 'name', 'time']
 
 #Opening file and file writer
 f = open('./public_ids.csv', 'r',encoding='utf-8')
-for i in range (680000): #increment by 10000 before running
+for i in range (770000): #increment by 10000 before running
     next(f)
 
 f2 = open('./game_list.csv', 'a', newline='')
@@ -47,23 +47,23 @@ def api_call(self):
                     appID = game["appid"]
                     try:
                         name = game["name"]
+                        #Encoding and decoding the name to remove unused ascii characters
+                        name = name.encode("ascii", "ignore")
+                        name = name.decode()
+                        time = '{:.2f}'.format(game["playtime_forever"] / 60)
+
+                        #Checking if the games play time is > 10 hours to eliminate owned but not played games
+                        if float(time) > 10:
+                            #Formatting data
+                            data = [int(self.starting_id), appID, name, time]
+                            #Writing data row to the CSV file
+                            writer.writerow(data)
                     except BaseException as e:
                         print(str(e))
                         print(self.starting_id)
-                    #Encoding and decoding the name to remove unused ascii characters
-                    name = name.encode("ascii", "ignore")
-                    name = name.decode()
-                    time = '{:.2f}'.format(game["playtime_forever"] / 60)
 
-                    #Checking if the games play time is > 10 hours to eliminate owned but not played games
-                    if float(time) > 10:
-                        #Formatting data
-                        data = [int(self.starting_id), appID, name, time]
-                        #Writing data row to the CSV file
-                        writer.writerow(data)
         else:
             print(response.status_code)
-        #print('Getting steamID: {}'.format(current_id))
         self.increment()
 
 #Defining thread class
