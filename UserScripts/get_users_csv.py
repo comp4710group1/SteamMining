@@ -9,13 +9,16 @@ import threading
 
 
 #API Key
-apiKey = "C4364E1FFD0AFF0CA0FD74ACBD3ADBFF"
+apiKey = "76710493F77E11BB4010B66EFF7D3303" # probably change this to your own api key before you start running
 
 #Headers for the CSV file
 header = ['steamID', 'appID', 'name', 'time']
 
 #Opening file and file writer
-f = open('./public_ids.csv', 'r')
+f = open('./public_ids.csv', 'r',encoding='utf-8')
+for i in range (950000): #increment by 10000 before running
+    next(f)
+
 f2 = open('./game_list.csv', 'a', newline='')
 writer = csv.writer(f2)
 
@@ -23,46 +26,44 @@ writer = csv.writer(f2)
 if os.stat('./game_list.csv').st_size == 0:
     writer.writerow(header)
 
-#Starter steamID for increment
-#steamID = 92171249
-#steamID = 92100009
 #Total API calls = API_CALLS_PER_THREAD * NUM_THREADS
-API_CALLS_PER_THREAD = 100
-NUM_THREADS = 10
+API_CALLS_PER_THREAD = 200
+NUM_THREADS = 50
 
 def api_call(self):
     #Loop through i next ID's
     for i in range(API_CALLS_PER_THREAD):
         #include_played_free_games=true gets free games, can be removed if we only want to do paid games
         try:
-            response = requests.get('https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key={}&steamid={}&include_appinfo=true&include_played_free_games=true&format=json'.format(apiKey,self.starting_id))
+            response = requests.get('https://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v1/?key={}&steamid={}&format=json'.format(apiKey,self.starting_id))
         except BaseException as e:
             print(str(e))
         if response.status_code == 200:
             data = response.json()
-
             #If data is not empty
-            if data['response'] != {} and data['response']['game_count'] > 0:
+            if data['response'] != {} and data['response']['total_count'] > 0:
                 #grab game info for steam user
                 for game in data['response']['games']:
                     appID = game["appid"]
-                    name = game["name"]
-                    #Encoding and decoding the name to remove unused ascii characters
-                    name = name.encode("ascii", "ignore")
-                    name = name.decode()
-                    time = '{:.2f}'.format(game["playtime_forever"] / 60)
+                    try:
+                        name = game["name"]
+                        #Encoding and decoding the name to remove unused ascii characters
+                        name = name.encode("ascii", "ignore")
+                        name = name.decode()
+                        time = '{:.2f}'.format(game["playtime_forever"] / 60)
 
-                    #Checking if the games play time is > 10 hours to eliminate owned but not played games
-                    if float(time) > 10:
-                        #Formatting data
-                        data = [int(self.starting_id), appID, name, time]
-                        #Writing data row to the CSV file
-                        writer.writerow(data)
-            else:
-                print("no games from {}".format(self.starting_id))
+                        #Checking if the games play time is > 10 hours to eliminate owned but not played games
+                        if float(time) > 10:
+                            #Formatting data
+                            data = [int(self.starting_id), appID, name, time]
+                            #Writing data row to the CSV file
+                            writer.writerow(data)
+                    except BaseException as e:
+                        print(str(e))
+                        print(self.starting_id)
+
         else:
             print(response.status_code)
-        #print('Getting steamID: {}'.format(current_id))
         self.increment()
 
 #Defining thread class
