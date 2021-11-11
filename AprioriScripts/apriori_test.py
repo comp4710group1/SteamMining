@@ -1,30 +1,25 @@
 from efficient_apriori import apriori
-transactions = [('eggs', 'bacon', 'soup'),
-                ('eggs', 'bacon', 'apple'),
-                ('soup', 'bacon', 'banana')]
 
-itemsets, rules = apriori(transactions, min_support=0.5, min_confidence=1)
+item_set_list = []
+
+with open('../UserScripts/game_list_parsed.csv') as f:
+  for line in f:
+    num_list = line.split(',')
+    num_list[len(num_list) - 1] = num_list[len(num_list) - 1].strip('\n')
+    item_set_list.append(num_list)
+
+itemsets, rules = apriori(item_set_list, min_support=0.0005, min_confidence=0.05)
 # print(rules)  # [{eggs} -> {bacon}, {soup} -> {bacon}]
-print(itemsets)
 
-for item in itemsets:
-  for t in item:
-    print(t)
+file = open("test.txt", "w")
 
-# test = ('eggs', 'bacon', 'soup')
-# for t in test:
-#   print(t)
-
-# itemsets, rules = apriori(transactions, min_support=0.2, min_confidence=1)
-
-# Print out every rule with 2 items on the left hand side,
-# 1 item on the right hand side, sorted by lift
-# rules_rhs = filter(lambda rule: len(rule.lhs) == 2 and len(rule.rhs) == 1, rules)
-# for rule in sorted(rules_rhs, key=lambda rule: rule.lift):
-#   print(rule)
-
-# transactions = [('eggs', 'bacon', 'soup'),
-#                 ('eggs', 'bacon', 'apple'),
-#                 ('soup', 'bacon', 'banana')]
-# itemsets, rules = apriori(transactions, output_transaction_ids=True)
-# print(itemsets)
+for itemset in itemsets:
+  for item in itemsets[itemset]:
+    for i in item:
+      if (item.index(i) != len(item) - 1):
+        file.write('{},'.format(i))  
+      else:
+        file.write('{}'.format(i))   
+    file.write(':{}\n'.format(itemsets[itemset][item]))
+    
+file.close()
