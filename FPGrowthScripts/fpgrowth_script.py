@@ -2,20 +2,23 @@ from fpgrowth import fpgrowth
 from pprint import pprint
 import csv
 
+item_set_list= []
 
-itemSetList = []
+with open('../UserScripts/game_list_parsed.csv') as f:
+    for line in f:
+        #put line into list split on commas
+        num_list = line.split(',')
+        #remove the \n on the last element
+        num_list[len(num_list)-1] = num_list[len(num_list)-1].strip('\n')
+        #put all those lists in the bigger list
+        item_set_list.append(num_list)
 
-with open('./dataset/data.csv', newline='') as f:
-    reader = csv.reader(f)
-    itemSetList = list(reader)
-
-freqItemSet, rules = fpgrowth(itemSetList, minSupRatio = 0.75, minConf = 0.5)
-
-print(itemSetList)
+#run fpgrowth
+freqItemSet, rules = fpgrowth(item_set_list, minSupRatio = 0.0005, minConf = 0.05)
 
 print('\n')
 pprint(rules)
 print('\n')
-pprint(freqItemSet)
+#pprint(freqItemSet)
 print('\n')
 
