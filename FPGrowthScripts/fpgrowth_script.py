@@ -1,5 +1,6 @@
 from fpgrowth import fpgrowth
 from pprint import pprint
+from utils import getSupport
 
 item_set_list= []
 
@@ -13,11 +14,14 @@ with open('../UserScripts/game_list_parsed.csv') as f:
         item_set_list.append(num_list)
 
 #run fpgrowth
-freqItemSet, rules = fpgrowth(item_set_list, minSupRatio = 0.0005, minConf = 0.05)
+freqItemSet, rules = fpgrowth(item_set_list, minSupRatio = 0.005, minConf = 0.2)
 
-print('\n')
-pprint(rules)
-print('\n')
+for item in freqItemSet:
+    support = 'support: ' + str(getSupport(item, item_set_list))
+    print(str(item) + ' | ' + support)
+
+#print(getSupport(['1009850', '1068820', '250820', '438100'], item_set_list))
+
+#pprint(rules)
 #pprint(freqItemSet)
-print('\n')
 
