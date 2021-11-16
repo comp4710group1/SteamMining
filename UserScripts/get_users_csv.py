@@ -9,14 +9,14 @@ import threading
 
 
 #API Key
-apiKey = "76710493F77E11BB4010B66EFF7D3303" # probably change this to your own api key before you start running
+apiKey = "C4364E1FFD0AFF0CA0FD74ACBD3ADBFF" # probably change this to your own api key before you start running
 
 #Headers for the CSV file
 header = ['steamID', 'appID', 'name', 'time']
 
 #Opening file and file writer
 f = open('./public_ids.csv', 'r',encoding='utf-8')
-for i in range (2140000): #increment by 10000 before running
+for i in range (2230000): #increment by 10000 before running
     next(f)
 
 f2 = open('./game_list.csv', 'a', newline='')
