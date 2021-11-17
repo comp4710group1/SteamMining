@@ -16,7 +16,7 @@ header = ['steamID', 'appID', 'name', 'time']
 
 #Opening file and file writer
 f = open('./public_ids.csv', 'r',encoding='utf-8')
-for i in range (2580000): #increment by 10000 before running
+for i in range (2670000): #increment by 10000 before running
     next(f)
 
 f2 = open('./game_list.csv', 'a', newline='')
