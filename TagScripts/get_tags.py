@@ -1,23 +1,34 @@
 #https://steamspy.com/api.php
 
 import requests
+import csv
+import time
 
-#grab app info for CSGO
-response = requests.get('https://steamspy.com/api.php?request=appdetails&appid=730')
+f = open('../AppScripts/game_id_lookup.csv', 'r', errors="ignore")
+line = f.readline()
 
-if(response.status_code == 200):
-    app_info = response.json()
+f2 = open('./game_tag_list.csv', 'w', newline='')
+writer = csv.writer(f2)
 
-    #this api call also lets us skip over the appid to name phase and gives the name directly
-    name = app_info['name']
-    tags = app_info['tags']
+while line:
+    row = line.split(",")
+    appID = row[0]
+    #grab app info for every game in app_list
+    response = requests.get('https://steamspy.com/api.php?request=appdetails&appid={}'.format(appID))
 
-    tag_string = ''
-    for key in tags:
-        #could easily get check tags above a certain threshold
-        tag_string += '{} tagged {} times, '.format(key, tags[key])
+    if(response.status_code == 200):
+        app_info = response.json()
 
-    print('Game: {}, Tags: {}'.format(name, tag_string))
+        #this api call also lets us skip over the appid to name phase and gives the name directly
+        tags = app_info['tags']
+        data = [appID]
+        print("AppID " + appID)
+        for key in tags:
+            data.append(key)
+        #Writing data row to the CSV file
+        writer.writerow(data)
 
-else:
-    print('Something goofed up with the request: {}'.format(response.status_code))
+    else:
+        print('Something goofed up with the request: {}'.format(response.status_code))
+    time.sleep(0.3)
+    line = f.readline()
