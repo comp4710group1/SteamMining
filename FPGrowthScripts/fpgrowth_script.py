@@ -2,7 +2,12 @@ from fpgrowth import fpgrowth
 from pprint import pprint
 from utils import getSupport
 
+import csv
+
 item_set_list= []
+
+f = open('./dataset/data.csv', 'w', newline='')
+writer = csv.writer(f)
 
 with open('../UserScripts/game_list_parsed.csv') as f:
     for line in f:
@@ -14,11 +19,13 @@ with open('../UserScripts/game_list_parsed.csv') as f:
         item_set_list.append(num_list)
 
 #run fpgrowth
-freqItemSet, rules = fpgrowth(item_set_list, minSupRatio = 0.005, minConf = 0.2)
+freqItemSet, rules = fpgrowth(item_set_list, minSupRatio = 0.0003, minConf = 0.1)
 
 for item in freqItemSet:
     support = 'support: ' + str(getSupport(item, item_set_list))
-    print(str(item) + ' | ' + support)
+    if len(item) > 1:
+        writer.writerow([str(item) + ' | ' + support])
+    #print(str(item) + ' | ' + support)
 
 #print(getSupport(['1009850', '1068820', '250820', '438100'], item_set_list))
 
