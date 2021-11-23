@@ -1,4 +1,5 @@
 # SteamMining
+This project looks to data mine the online gaming platform Steam. We will be analyzing what trends appear in the data. Furthermore we will be evaluating looking at the way Steam recommends games that are similar to what a user has played before. We will be using the FP growth algorithm to compute the frequent item sets of users recently played games with a minimum support of hours played and the user-defined tags (adventure, multiplayer, puzzle) that those games fall under. 
 
-# Description
-This is a repo for Computer Science 4710 group project.
+We are going to compare game recommendations based on the data available. For example, what games would be recommended based on the user-defined tags of games a user plays (e.g User A mostly plays games with the ‘strategy’ tag). Or what games would be recommended based on what games users usually play together (e.g 60% of users who play game A also play game B). Steam’s current ‘Interactive Recommender’ does not use tags or metadata to come up with their recommendations. We will come up with a data set where we utilize the user-defined tags to influence what games are recommended.
+
