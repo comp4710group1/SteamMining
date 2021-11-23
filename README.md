@@ -68,7 +68,7 @@ Response:
 
 The purpose of this call is to get a list of all the recently played games from a public user. Getting only the recently played games allows us to keep the recommendations as up to date as possible. Additionally, Steam's API call to get all played games is very spotty and only works half the time.
 
-API call: https://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v1/?key=<em>API_KEY</em>&steamid=<em>PUBLIC_STEAM_ID</em>&format=json
+API call: https://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v1/?key=API_KEY&steamid=PUBLIC_STEAM_ID&format=json
 
 - PUBLIC_STEAM_ID refers to a single public steam id
 
