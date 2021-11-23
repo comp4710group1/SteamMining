@@ -1,4 +1,7 @@
 # SteamMining
+
+![Mining Steam](Images/steam_mining_logo.png)
+
 This project looks to data mine the online gaming platform Steam. We will be analyzing what trends appear in the data. Furthermore we will be evaluating looking at the way Steam recommends games that are similar to what a user has played before. We will be using the FP growth algorithm to compute the frequent item sets of users recently played games with a minimum support of hours played and the user-defined tags (adventure, multiplayer, puzzle) that those games fall under. 
 
 We are going to compare game recommendations based on the data available. For example, what games would be recommended based on the user-defined tags of games a user plays (e.g User A mostly plays games with the ‘strategy’ tag). Or what games would be recommended based on what games users usually play together (e.g 60% of users who play game A also play game B). Steam’s current ‘Interactive Recommender’ does not use tags or metadata to come up with their recommendations. We will come up with a data set where we utilize the user-defined tags to influence what games are recommended.
@@ -54,7 +57,7 @@ Response:
 </details>
 
 
-<details><summary><b>Get Users Games</b></summary>
+<details><summary><b>Get User's Games</b></summary>
 
 The purpose of this call is to get a list of all the recently played games from a public user. Getting only the recently played games allows us to keep the recommendations as up to date as possible. Additionally, Steam's API call to get all played games is very spotty and only works half the time.
 
@@ -203,7 +206,7 @@ Calling from the top level directory:
 
 </details>
 
-<details><summary><b>Get Public Users</b></summary>
+<details><summary><b>Get User's Games</b></summary>
 
 After making the API call this script parses the results, removing private profiles. It then writes those unpruned profiles to another file to be processed later.
 
