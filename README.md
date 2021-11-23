@@ -7,11 +7,14 @@ This project looks to data mine the online gaming platform Steam. We will be ana
 We are going to compare game recommendations based on the data available. For example, what games would be recommended based on the user-defined tags of games a user plays (e.g User A mostly plays games with the ‘strategy’ tag). Or what games would be recommended based on what games users usually play together (e.g 60% of users who play game A also play game B). Steam’s current ‘Interactive Recommender’ does not use tags or metadata to come up with their recommendations. We will come up with a data set where we utilize the user-defined tags to influence what games are recommended.
 
 ## Prerequisites 
+- A Steam API key if you want to run the API calls
+- Python to run the algorithm scripts
+  - This project was tested on python 3.10.0
 
 ## API Calls
 
 ### Terms
-- API_KEY refers to your own API key from steam
+- API_KEY refers to your own API key from Steam
 
 ### Calls
 
@@ -189,6 +192,8 @@ Response:
 
 </details>
 
+<br>
+
 ## Script Calls
 
 In order to drastically increase the speed of hundreds of thousands of calls these scripts make great use of multi-threading
@@ -206,15 +211,60 @@ Calling from the top level directory:
 
 </details>
 
+
 <details><summary><b>Get User's Games</b></summary>
 
 After making the API call this script parses the results, removing private profiles. It then writes those unpruned profiles to another file to be processed later.
 
 Calling from the top level directory:
 ```sh
-...\SteamMining> py .\UserScripts\get_public_users.py
+...\SteamMining> py .\UserScripts\get_recent_games_csv.py
 ```
 
 </details>
+
+
+<details><summary><b>Parse User's Games</b></summary>
+
+This script takes all the games of a user and extracts just the appid. It also puts the appids in a format that we can process
+
+Calling from the top level directory:
+```sh
+...\SteamMining> py .\UserScripts\parse_games_csv.py
+```
+
+</details>
+
+
+<details><summary><b>Get Game Tags</b></summary>
+
+Given some game, this script will extract all of the user defined tags
+
+Calling from the top level directory:
+```sh
+...\SteamMining> py .\TagScripts\get_tags.py
+```
+
+</details>
+
+
+<details><summary><b>Generate App ID Lookup</b></summary>
+
+This script creates a lookup table for appid to actual game name
+
+Calling from the top level directory:
+```sh
+...\SteamMining> py .\AppScripts\app_list.py
+```
+
+</details>
+
+
+<details><summary><b>FP Growth</b></summary>
+temp
+
+</details>
+
+<br>
 
 ## Resources

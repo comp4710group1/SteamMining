@@ -1,5 +1,4 @@
 import csv
-import os
 
 f = open('./game_list.csv', 'r', errors="ignore")
 #Read lines to get rid of headers
