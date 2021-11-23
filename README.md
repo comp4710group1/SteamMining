@@ -184,6 +184,34 @@ Response:
 }
 ```
 
+</details>
+
 ## Script Calls
+
+In order to drastically increase the speed of hundreds of thousands of calls these scripts make great use of multi-threading
+
+- Running python scripts can be a bit weird sometimes. If py doesn't work try python and python3
+
+<details><summary><b>Get Public Users</b></summary>
+
+After making the API call this script parses the results, removing private profiles. It then writes those unpruned profiles to another file to be processed later.
+
+Calling from the top level directory:
+```sh
+...\SteamMining> py .\UserScripts\get_public_users.py
+```
+
+</details>
+
+<details><summary><b>Get Public Users</b></summary>
+
+After making the API call this script parses the results, removing private profiles. It then writes those unpruned profiles to another file to be processed later.
+
+Calling from the top level directory:
+```sh
+...\SteamMining> py .\UserScripts\get_public_users.py
+```
+
+</details>
 
 ## Resources
