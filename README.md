@@ -6,10 +6,14 @@ This project looks to data mine the online gaming platform Steam. We will be ana
 
 We are going to compare game recommendations based on the data available. For example, what games would be recommended based on the user-defined tags of games a user plays (e.g User A mostly plays games with the ‘strategy’ tag). Or what games would be recommended based on what games users usually play together (e.g 60% of users who play game A also play game B). Steam’s current ‘Interactive Recommender’ does not use tags or metadata to come up with their recommendations. We will come up with a data set where we utilize the user-defined tags to influence what games are recommended.
 
+<br>
+
 ## Prerequisites 
 - A Steam API key if you want to run the API calls
 - Python to run the algorithm scripts
   - This project was tested on python 3.10.0
+
+<br>
 
 ## API Calls
 
