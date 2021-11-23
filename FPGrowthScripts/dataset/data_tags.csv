@@ -1,0 +1,144 @@
+ {'Co-op',  'Online  Co-Op'} , support:  574 
+ {'Online  Co-Op',  'Multiplayer'} , support:  643 
+ {'FPS',  'First-Person'} , support:  583 
+ {'FPS',  'Action'} , support:  663 
+ {'Singleplayer',  'Puzzle'} , support:  582 
+ {'Third  Person',  'Adventure'} , support:  590 
+ {'Third  Person',  'Action'} , support:  661 
+ {'Singleplayer',  'Third  Person'} , support:  668 
+ {'Singleplayer',  'Anime'} , support:  576 
+ {'Sci-fi',  'Action'} , support:  585 
+ {'Singleplayer',  'Sci-fi'} , support:  689 
+ {'Action',  'Difficult'} , support:  622 
+ {'Singleplayer',  'Difficult'} , support:  730 
+ {'Singleplayer',  'Sandbox'} , support:  687 
+ {'Indie',  'Early  Access'} , support:  606 
+ {'Shooter',  'Multiplayer'} , support:  593 
+ {'Shooter',  'Action',  'Multiplayer'} , support:  588 
+ {'Shooter',  'Singleplayer'} , support:  695 
+ {'Shooter',  'Action',  'Singleplayer'} , support:  679 
+ {'Shooter',  'Action'} , support:  886 
+ {'Action',  'Funny'} , support:  604 
+ {'Singleplayer',  'Funny'} , support:  760 
+ {'Fantasy',  'Adventure'} , support:  680 
+ {'Fantasy',  'RPG'} , support:  721 
+ {'Singleplayer',  'Fantasy'} , support:  785 
+ {'First-Person',  'Adventure'} , support:  588 
+ {'First-Person',  'Multiplayer'} , support:  613 
+ {'Action',  'First-Person'} , support:  808 
+ {'Singleplayer',  'Action',  'First-Person'} , support:  660 
+ {'Singleplayer',  'First-Person'} , support:  826 
+ {'Story  Rich',  'RPG'} , support:  582 
+ {'Great  Soundtrack',  'Story  Rich'} , support:  633 
+ {'Great  Soundtrack',  'Story  Rich',  'Singleplayer'} , support:  596 
+ {'Action',  'Story  Rich'} , support:  676 
+ {'Singleplayer',  'Action',  'Story  Rich'} , support:  622 
+ {'Atmospheric',  'Story  Rich'} , support:  697 
+ {'Atmospheric',  'Story  Rich',  'Adventure'} , support:  608 
+ {'Singleplayer',  'Atmospheric',  'Story  Rich'} , support:  647 
+ {'Story  Rich',  'Adventure'} , support:  977 
+ {'Singleplayer',  'Story  Rich',  'Adventure'} , support:  884 
+ {'Singleplayer',  'Story  Rich'} , support:  1096 
+ {'Co-op',  'Adventure'} , support:  711 
+ {'Co-op',  'Action',  'Adventure'} , support:  635 
+ {'Co-op',  'Action',  'Adventure',  'Multiplayer'} , support:  580 
+ {'Co-op',  'Adventure',  'Multiplayer'} , support:  644 
+ {'Co-op',  'Singleplayer'} , support:  961 
+ {'Co-op',  'Singleplayer',  'Action'} , support:  796 
+ {'Co-op',  'Singleplayer',  'Action',  'Multiplayer'} , support:  743 
+ {'Co-op',  'Singleplayer',  'Multiplayer'} , support:  887 
+ {'Co-op',  'Action'} , support:  1046 
+ {'Co-op',  'Action',  'Multiplayer'} , support:  949 
+ {'Co-op',  'Multiplayer'} , support:  1147 
+ {'Open  World',  'RPG'} , support:  607 
+ {'Open  World',  'Multiplayer'} , support:  792 
+ {'Open  World',  'Singleplayer',  'Multiplayer'} , support:  637 
+ {'Open  World',  'Action',  'Multiplayer'} , support:  647 
+ {'Open  World',  'Adventure'} , support:  944 
+ {'Open  World',  'Action',  'Adventure'} , support:  761 
+ {'Open  World',  'Singleplayer',  'Action',  'Adventure'} , support:  653 
+ {'Open  World',  'Singleplayer',  'Adventure'} , support:  802 
+ {'Open  World',  'Action'} , support:  962 
+ {'Open  World',  'Singleplayer',  'Action'} , support:  801 
+ {'Open  World',  'Singleplayer'} , support:  1072 
+ {'Adventure',  '2D'} , support:  635 
+ {'Action',  '2D'} , support:  647 
+ {'Indie',  '2D'} , support:  938 
+ {'Indie',  'Singleplayer',  '2D'} , support:  769 
+ {'Singleplayer',  '2D'} , support:  1034 
+ {'Great  Soundtrack',  'Atmospheric'} , support:  629 
+ {'Great  Soundtrack',  'Atmospheric',  'Singleplayer'} , support:  601 
+ {'Indie',  'Great  Soundtrack'} , support:  718 
+ {'Indie',  'Great  Soundtrack',  'Singleplayer'} , support:  618 
+ {'Great  Soundtrack',  'Adventure'} , support:  882 
+ {'Great  Soundtrack',  'Action',  'Adventure'} , support:  607 
+ {'Great  Soundtrack',  'Action',  'Adventure',  'Singleplayer'} , support:  576 
+ {'Great  Soundtrack',  'Adventure',  'Singleplayer'} , support:  817 
+ {'Great  Soundtrack',  'Action'} , support:  960 
+ {'Great  Soundtrack',  'Action',  'Singleplayer'} , support:  870 
+ {'Great  Soundtrack',  'Singleplayer'} , support:  1283 
+ {'Atmospheric',  'Multiplayer'} , support:  580 
+ {'Indie',  'Atmospheric'} , support:  672 
+ {'Indie',  'Singleplayer',  'Atmospheric'} , support:  595 
+ {'Atmospheric',  'Action'} , support:  960 
+ {'Atmospheric',  'Action',  'Adventure'} , support:  712 
+ {'Singleplayer',  'Atmospheric',  'Action',  'Adventure'} , support:  658 
+ {'Singleplayer',  'Atmospheric',  'Action'} , support:  864 
+ {'Atmospheric',  'Adventure'} , support:  1057 
+ {'Singleplayer',  'Atmospheric',  'Adventure'} , support:  954 
+ {'Singleplayer',  'Atmospheric'} , support:  1324 
+ {'Casual',  'Strategy'} , support:  584 
+ {'Casual',  'Simulation'} , support:  586 
+ {'Casual',  'Action'} , support:  601 
+ {'Casual',  'Adventure'} , support:  652 
+ {'Casual',  'Indie'} , support:  1001 
+ {'Casual',  'Singleplayer',  'Indie'} , support:  734 
+ {'Casual',  'Singleplayer'} , support:  1089 
+ {'Action',  'Simulation'} , support:  647 
+ {'Multiplayer',  'Simulation'} , support:  784 
+ {'Singleplayer',  'Multiplayer',  'Simulation'} , support:  617 
+ {'Strategy',  'Simulation'} , support:  889 
+ {'Singleplayer',  'Strategy',  'Simulation'} , support:  694 
+ {'Indie',  'Simulation'} , support:  890 
+ {'Indie',  'Singleplayer',  'Simulation'} , support:  669 
+ {'Singleplayer',  'Simulation'} , support:  1242 
+ {'Multiplayer',  'RPG'} , support:  622 
+ {'Strategy',  'RPG'} , support:  623 
+ {'Indie',  'RPG'} , support:  802 
+ {'Indie',  'Singleplayer',  'RPG'} , support:  594 
+ {'Action',  'RPG'} , support:  978 
+ {'Action',  'Adventure',  'RPG'} , support:  761 
+ {'Singleplayer',  'Action',  'RPG'} , support:  761 
+ {'Singleplayer',  'Action',  'Adventure',  'RPG'} , support:  618 
+ {'Adventure',  'RPG'} , support:  1146 
+ {'Singleplayer',  'Adventure',  'RPG'} , support:  893 
+ {'Singleplayer',  'RPG'} , support:  1234 
+ {'Adventure',  'Strategy'} , support:  647 
+ {'Action',  'Strategy'} , support:  776 
+ {'Singleplayer',  'Action',  'Strategy'} , support:  620 
+ {'Multiplayer',  'Strategy'} , support:  910 
+ {'Singleplayer',  'Multiplayer',  'Strategy'} , support:  707 
+ {'Indie',  'Strategy'} , support:  986 
+ {'Indie',  'Singleplayer',  'Strategy'} , support:  748 
+ {'Singleplayer',  'Strategy'} , support:  1451 
+ {'Indie',  'Multiplayer'} , support:  903 
+ {'Indie',  'Singleplayer',  'Multiplayer'} , support:  620 
+ {'Indie',  'Action',  'Multiplayer'} , support:  631 
+ {'Adventure',  'Multiplayer'} , support:  1030 
+ {'Singleplayer',  'Adventure',  'Multiplayer'} , support:  812 
+ {'Singleplayer',  'Action',  'Adventure',  'Multiplayer'} , support:  714 
+ {'Action',  'Adventure',  'Multiplayer'} , support:  885 
+ {'Action',  'Multiplayer'} , support:  1650 
+ {'Singleplayer',  'Action',  'Multiplayer'} , support:  1248 
+ {'Singleplayer',  'Multiplayer'} , support:  1731 
+ {'Indie',  'Adventure'} , support:  1282 
+ {'Indie',  'Action',  'Adventure'} , support:  743 
+ {'Indie',  'Singleplayer',  'Action',  'Adventure'} , support:  596 
+ {'Indie',  'Singleplayer',  'Adventure'} , support:  1025 
+ {'Action',  'Adventure'} , support:  1708 
+ {'Singleplayer',  'Action',  'Adventure'} , support:  1419 
+ {'Singleplayer',  'Adventure'} , support:  2089 
+ {'Indie',  'Action'} , support:  1361 
+ {'Indie',  'Singleplayer',  'Action'} , support:  1013 
+ {'Indie',  'Singleplayer'} , support:  1958 
+ {'Singleplayer',  'Action'} , support:  2298 
