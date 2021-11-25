@@ -272,3 +272,7 @@ temp
 <br>
 
 ## Resources
+- [Steamworks documentation](https://partner.steamgames.com/doc/home)
+- [Steam Web API documentation](https://developer.valvesoftware.com/wiki/Steam_Web_API) 
+- [SteamSpy documentation](https://steamspy.com/api.php)
+- [FP growth algorithm](https://github.com/chonyy/fpgrowth_py) 
