@@ -14,13 +14,13 @@ def api_call():
     game_list = []
 
     try: 
-        response = requests.get('https://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v1/?key={}&steamid={}&format=json'.format(API_KEY,STEAM_ID))
+        response = requests.get('https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key={}&steamid={}&format=json'.format(API_KEY,STEAM_ID))
     except BaseException as e:
         print(str(e))
     
     if response.status_code == 200:
         data = response.json()
-        if data['response'] != {} and data['response']['total_count'] > 0:
+        if data['response'] != {} and data['response']['game_count'] > 0:
             for game in data['response']['games']:
                 try:
                     game_list.append(game['appid'])
