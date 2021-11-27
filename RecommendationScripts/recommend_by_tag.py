@@ -1,7 +1,7 @@
 import requests
 import heapq
 
-STEAM_ID = 76561198067451956
+STEAM_ID = 76561198092171249 
 API_KEY = '09FEA56EF1B8EDD4A8602AC5AB529C72'
 
 #how many tags to extract from user
@@ -99,9 +99,36 @@ def prune_recommendations(game_recommendations, game_list):
     
     print(final_list)
 
+def get_ratio():
+    f = open('../TagScripts/game_tag_list.csv', 'r')
+    f.seek(0)
+
+    line_counter = 0
+    tag_counter = {}
+
+    for line in f:
+        line_data = line.split(',')
+        if len(line_data) > 1:
+            for tag in range(1, len(line_data)): #look through all the tags from that game
+                if line_data[tag] not in tag_counter: #if the tag isnt in the dict yet, add it
+                    tag_counter[line_data[tag]] = 1
+                else:                         #otherwise, increment the count by 1
+                    tag_counter[line_data[tag]] += 1 
+            line_counter += 1
+
+    for tag in tag_counter:
+        tag_counter[tag] = (int(tag_counter[tag]) / line_counter) * 100
+
+    for key in tag_counter:
+        print(str(key).strip('\n') + ' -> ' + str(tag_counter[key]) + '%')
+
+    
+    print(str('Action').strip('\n') + ' -> ' + str(tag_counter['Action']) + '%')
+
 if __name__ == "__main__":
     game_list = api_call()
     top_tags = get_tags(game_list)
     game_recommendations = generate_recommendations(top_tags)
     prune_recommendations(game_recommendations, game_list)
+    get_ratio()
 
