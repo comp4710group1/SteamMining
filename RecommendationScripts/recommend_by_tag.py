@@ -1,11 +1,13 @@
 import requests
 import heapq
 
-STEAM_ID = 76561198092171249
+STEAM_ID = 76561198067451956
 API_KEY = '09FEA56EF1B8EDD4A8602AC5AB529C72'
 
 #how many tags to extract from user
 STRICTNESS = 10
+
+R_CHECK = 9
 
 f = open('../TagScripts/game_tag_list.csv', 'r')
 f2 = open('../FPGrowthScripts/dataset/data_test.csv', 'r')
@@ -51,28 +53,55 @@ def get_tags(game_list):
     #******* havent tested when dict is smaller than STRICTNESS ********
     return heapq.nlargest(STRICTNESS, tag_dict, key=tag_dict.get)
 
-def generate_recommendations(top_tags):
-    recommendation_list = []
-    fp_list = []
+#def generate_recommendations(top_tags):
+    #recommendation_list = []
+    #fp_list = []
 
-    for line in f2:
-        fp = line.split("'")[1::2]
-        fp_list.append(fp)
+    #for line in f2:
+        #fp = line.split("'")[1::2]
+        #fp_list.append(fp)
 
-    for tag in top_tags: #look through users recently played games
-        for pattern in fp_list: #look at each pattern in the frequent pattern list
-            if str(tag) in pattern: #if the user's game is in a pattern
-                for item in pattern: #look through each item in that frequent pattern
-                    if item not in recommendation_list and str(item) not in top_tags: #add items that are not already recommended and not in the user's game list
-                        recommendation_list.append(item)
+    #for tag in top_tags: #look through users recently played games
+        #for pattern in fp_list: #look at each pattern in the frequent pattern list
+            #if str(tag) in pattern: #if the user's game is in a pattern
+                #for item in pattern: #look through each item in that frequent pattern
+                    #if item not in recommendation_list and str(item) not in top_tags: #add items that are not already recommended and not in the user's game list
+                        #recommendation_list.append(item)
     
-    return recommendation_list
+    #return recommendation_list
 
-def prune_recommendations():
-    print('placeholder')
+def generate_recommendations(top_tags):
+    f = open('../TagScripts/game_tag_list.csv', 'r')
+    f.seek(0)
+
+    game_recommendations = []
+
+    for line in f:
+        counter = 0
+        tags = line.split(',')
+        if len(tags) > 1:
+            for tag in range(1, len(tags)):
+                for top_tag in top_tags:
+                    if str(tags[tag]) == str(top_tag):
+                        counter += 1
+        if counter >= R_CHECK:
+            game_recommendations.append(tags[0])
+
+    return game_recommendations
+
+            
+def prune_recommendations(game_recommendations, game_list):
+    final_list = []
+
+    for r_game in game_recommendations:
+        if not int(r_game) in game_list:
+            final_list.append(r_game)
+    
+    print(final_list)
 
 if __name__ == "__main__":
     game_list = api_call()
     top_tags = get_tags(game_list)
-    print(top_tags)
-    print(generate_recommendations(top_tags))
+    game_recommendations = generate_recommendations(top_tags)
+    prune_recommendations(game_recommendations, game_list)
+
