@@ -51,5 +51,5 @@ def gen_recommendations(game_list):
                 
 if __name__ == "__main__":
     game_list = api_call()
-    print(gen_recommendations(game_list))
+    gen_recommendations(game_list)
 
