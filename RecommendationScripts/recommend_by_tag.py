@@ -1,13 +1,15 @@
 import requests
 import heapq
 
+from appid_to_name import translate
+
 STEAM_ID = 76561198092171249 
 API_KEY = '09FEA56EF1B8EDD4A8602AC5AB529C72'
 
 #how many tags to extract from user
 STRICTNESS = 10
 
-R_CHECK = 9
+R_CHECK = 10
 
 f = open('../TagScripts/game_tag_list.csv', 'r')
 f2 = open('../FPGrowthScripts/dataset/data_test.csv', 'r')
@@ -97,7 +99,7 @@ def prune_recommendations(game_recommendations, game_list):
         if not int(r_game) in game_list:
             final_list.append(r_game)
     
-    print(final_list)
+    return final_list
 
 def get_ratio():
     f = open('../TagScripts/game_tag_list.csv', 'r')
@@ -129,6 +131,6 @@ if __name__ == "__main__":
     game_list = api_call()
     top_tags = get_tags(game_list)
     game_recommendations = generate_recommendations(top_tags)
-    prune_recommendations(game_recommendations, game_list)
-    get_ratio()
+    final_list = prune_recommendations(game_recommendations, game_list)
+    print(translate(final_list))
 

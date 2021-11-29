@@ -1,6 +1,8 @@
 import requests
 import heapq
 
+from appid_to_name import translate
+
 STEAM_ID = 76561198067451956
 API_KEY = '203D1B12FF0FE7CD49A5AA30BE98C453'
 
@@ -97,11 +99,12 @@ def prune_recommendations(game_recommendations, game_list):
         if not int(r_game) in game_list:
             final_list.append(r_game)
     
-    print(final_list)
+    return final_list
 
 if __name__ == "__main__":
     game_list = api_call()
     top_tags = get_tags(game_list)
     game_recommendations = generate_recommendations(top_tags)
-    prune_recommendations(game_recommendations, game_list)
+    final_list = prune_recommendations(game_recommendations, game_list)
+    print(translate(final_list))
 

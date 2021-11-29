@@ -1,6 +1,8 @@
 import requests
 import re
 
+from appid_to_name import translate
+
 #steam id to recommend for
 STEAM_ID = 76561198092171249
 #you should never put your api key out in public but whatever
@@ -51,5 +53,6 @@ def gen_recommendations(game_list):
                 
 if __name__ == "__main__":
     game_list = api_call()
-    gen_recommendations(game_list)
+    final_list = gen_recommendations(game_list)
+    print(translate(final_list))
 
