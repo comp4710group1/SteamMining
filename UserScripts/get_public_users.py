@@ -24,7 +24,7 @@ NUM_THREADS = 1000
 def api_call(self):
     current_id = self.starting_id
     #Loop through i next ID's
-    api_string = 'https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/?key=09FEA56EF1B8EDD4A8602AC5AB529C72&steamids='
+    api_string = 'https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/?key=&steamids='
     for i in range(100):
         current_id += i
         api_string += str(current_id) + '+'

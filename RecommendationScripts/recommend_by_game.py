@@ -4,10 +4,9 @@ import re
 from appid_to_name import translate
 
 #steam id to recommend for
-#CHANGE THIS TO YOUR STEAM_ID
-STEAM_ID = 76561198092171249
+STEAM_ID = 76561198067451956
 #you should never put your api key out in public but whatever
-API_KEY = '09FEA56EF1B8EDD4A8602AC5AB529C72'
+API_KEY = '203D1B12FF0FE7CD49A5AA30BE98C45'
 
 f = open('../FPGrowthScripts/dataset/data_games.csv', 'r')
 

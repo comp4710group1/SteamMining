@@ -62,6 +62,51 @@ Response:
 
 <details><summary><b>Get User's Games</b></summary>
 
+The purpose of this call is to get a list of all the games played by some user. Something to note is this API call is very spotty. Sometimes it just won't work.
+
+API call: https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=API_KEY&steamid=PUBLIC_STEAM_ID&format=json
+
+- PUBLIC_STEAM_ID refers to a single public steam id
+
+Request:
+```
+https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=API_KEY&steamid=76561198092171249&format=json
+```
+
+Response:
+```
+{
+    "response":{ 
+        "game_count":200,
+        "games":[
+            {
+                "appid":4500,
+                "playtime_forever":133,
+                "playtime_windows_forever":0,
+                "playtime_mac_forever":0,
+                "playtime_linux_forever":0
+            },
+            {
+                "appid":400,
+                "playtime_forever":509,
+                "playtime_windows_forever":0,
+                "playtime_mac_forever":0,
+                "playtime_linux_forever":0
+            },
+            .
+            .
+            .
+            .
+            .
+        ]
+    }
+}
+```
+
+</details>
+
+<details><summary><b>Get User's Recently Played Games</b></summary>
+
 The purpose of this call is to get a list of all the recently played games from a public user. Getting only the recently played games allows us to keep the recommendations as up to date as possible. Additionally, Steam's API call to get all played games is very spotty and only works half the time.
 
 API call: https://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v1/?key=API_KEY&steamid=PUBLIC_STEAM_ID&format=json
@@ -207,6 +252,8 @@ Calling from the top level directory:
 ...\SteamMining> py .\UserScripts\get_public_users.py
 ```
 
+Results are written to \CSVFiles\public_ids.csv
+
 </details>
 
 
@@ -218,6 +265,8 @@ Calling from the top level directory:
 ```sh
 ...\SteamMining> py .\UserScripts\get_recent_games_csv.py
 ```
+
+Results are written to \CSVFiles\game_list.csv
 
 </details>
 
@@ -231,6 +280,8 @@ Calling from the top level directory:
 ...\SteamMining> py .\UserScripts\parse_games_csv.py
 ```
 
+Results are written to \CSVFiles\parse_games_CSV.csv
+
 </details>
 
 
@@ -242,6 +293,8 @@ Calling from the top level directory:
 ```sh
 ...\SteamMining> py .\TagScripts\get_tags.py
 ```
+
+Results are written to \CSVFiles\game_tag_list.csv
 
 </details>
 
@@ -255,13 +308,68 @@ Calling from the top level directory:
 ...\SteamMining> py .\AppScripts\app_list.py
 ```
 
+Results are written to \CSVFiles\game_id_lookup.csv
+
+</details>
+
+
+<details><summary><b>Frequent Game Patterns With FPGrowth</b></summary>
+
+Extract frequent pattern games from the list of user games
+
+Calling from the top level directory:
+```sh
+...\SteamMining> py .\FPGrowthScripts\fpgrowth_script.py
+```
+
+Results are written to \FPGrowthScripts\dataset\data_games.csv
+
 </details>
 
 
-<details><summary><b>FP Growth</b></summary>
-temp
+<details><summary><b>Recommending By Game</b></summary>
+
+This script will create recommendations based off of the user's game data
+
+Calling from the top level directory:
+```sh
+...\SteamMining> py .\RecommendationScripts\recommend_by_game.py
+```
+
+Results are written to standard output
 
 </details>
+
+
+<details><summary><b>Recommending By Tag</b></summary>
+
+This script will create recommendations based off the user's most highly supported tags
+
+Calling from the top level directory:
+```sh
+...\SteamMining> py .\RecommendationScripts\recommend_by_tag.py
+```
+
+Results are written to standard output
+
+</details>
+
+
+<details><summary><b>Recommending By Playtime Weighted Tag</b></summary>
+
+This script recommends games based off the user's most played tags
+
+Calling from the top level directory:
+```sh
+...\SteamMining> py .\RecommendationScripts\recommend_by_time_tag.py
+```
+
+Results are written to standard output
+
+</details>
+
+
+
 
 ## Resources
 - [Steamworks documentation](https://partner.steamgames.com/doc/home)
