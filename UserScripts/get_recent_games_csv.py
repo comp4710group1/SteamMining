@@ -9,7 +9,7 @@ import threading
 
 
 #API Key
-apiKey = "09FEA56EF1B8EDD4A8602AC5AB529C72" # probably change this to your own api key before you start running
+apiKey = "" # probably change this to your own api key before you start running
 
 #Headers for the CSV file
 header = ['steamID', 'appID', 'name', 'time']
