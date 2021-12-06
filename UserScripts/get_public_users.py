@@ -7,11 +7,11 @@ import threading
 header = ['steamID']
 
 #Opening file and file writer
-f = open('./public_ids.csv', 'a', newline='')
+f = open('../CSVFiles/public_ids.csv', 'a', newline='')
 writer = csv.writer(f)
 
 #Checking if the headers already exist in CSV so we do not append them again.
-if os.stat('./public_ids.csv').st_size == 0:
+if os.stat('../CSVFiles/public_ids.csv').st_size == 0:
     writer.writerow(header)
 
 #Starter steamID for increment

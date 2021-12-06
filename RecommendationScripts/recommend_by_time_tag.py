@@ -3,16 +3,22 @@ import heapq
 
 from appid_to_name import translate
 
+#CHANGE THIS TO YOUR STEAM_ID
 STEAM_ID = 76561198067451956
+
 API_KEY = '203D1B12FF0FE7CD49A5AA30BE98C453'
 
 #how many tags to extract from user
 STRICTNESS = 10
 
+#The amount of tags that need to match between games to be recommended 
+#The larger this number upto a maximum of 10 will result in less results as it becomes more resstrictive
 R_CHECK = 8
 
-f = open('../TagScripts/game_tag_list.csv', 'r')
+f = open('../CSVFiles/game_tag_list.csv', 'r')
 f2 = open('../FPGrowthScripts/dataset/data_test.csv', 'r')
+
+print("List of Recommended Games:")
 
 def api_call():
     game_list = {}
@@ -52,28 +58,10 @@ def get_tags(game_list):
     
     #grabs the top 'STRICTNESS' tags from this user. If we used all the tags, any user with like 50
     #games would get recommended basically every game
-    #******* havent tested when dict is smaller than STRICTNESS ********
     return heapq.nlargest(STRICTNESS, tag_dict, key=tag_dict.get)
 
-#def generate_recommendations(top_tags):
-    #recommendation_list = []
-    #fp_list = []
-
-    #for line in f2:
-        #fp = line.split("'")[1::2]
-        #fp_list.append(fp)
-
-    #for tag in top_tags: #look through users recently played games
-        #for pattern in fp_list: #look at each pattern in the frequent pattern list
-            #if str(tag) in pattern: #if the user's game is in a pattern
-                #for item in pattern: #look through each item in that frequent pattern
-                    #if item not in recommendation_list and str(item) not in top_tags: #add items that are not already recommended and not in the user's game list
-                        #recommendation_list.append(item)
-    
-    #return recommendation_list
-
 def generate_recommendations(top_tags):
-    f = open('../TagScripts/game_tag_list.csv', 'r')
+    f = open('../CSVFiles/game_tag_list.csv', 'r')
     f.seek(0)
 
     game_recommendations = []
@@ -106,5 +94,6 @@ if __name__ == "__main__":
     top_tags = get_tags(game_list)
     game_recommendations = generate_recommendations(top_tags)
     final_list = prune_recommendations(game_recommendations, game_list)
-    print(translate(final_list))
+    for item in translate(final_list):
+        print(item.strip("\""))
 

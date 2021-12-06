@@ -15,15 +15,15 @@ apiKey = "09FEA56EF1B8EDD4A8602AC5AB529C72" # probably change this to your own a
 header = ['steamID', 'appID', 'name', 'time']
 
 #Opening file and file writer
-f = open('./public_ids.csv', 'r',encoding='utf-8')
+f = open('../CSVFiles/public_ids.csv', 'r',encoding='utf-8')
 for i in range (2950000): #increment by 10000 before running
     next(f)
 
-f2 = open('./game_list.csv', 'a', newline='')
+f2 = open('../CSVFiles/game_list.csv', 'a', newline='')
 writer = csv.writer(f2)
 
 #Checking if the headers already exist in CSV so we do not append them again.
-if os.stat('./game_list.csv').st_size == 0:
+if os.stat('../CSVFiles/game_list.csv').st_size == 0:
     writer.writerow(header)
 
 #Total API calls = API_CALLS_PER_THREAD * NUM_THREADS
