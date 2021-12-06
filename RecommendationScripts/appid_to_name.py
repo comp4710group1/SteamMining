@@ -1,5 +1,5 @@
 def id_to_name(appid):
-    f = open('../AppScripts/game_id_lookup.csv', 'r')
+    f = open('../CSVFiles/game_id_lookup.csv', 'r')
     name = 'none'
 
     for line in f:

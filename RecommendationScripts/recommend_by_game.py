@@ -10,6 +10,7 @@ API_KEY = '203D1B12FF0FE7CD49A5AA30BE98C45'
 
 f = open('../FPGrowthScripts/dataset/data_games.csv', 'r')
 
+print("List of Recommended Games:")
 
 def api_call():
     game_list = []
@@ -48,11 +49,12 @@ def gen_recommendations(game_list):
                 for item in pattern: #look through each item in that frequent pattern
                     if item not in recommendation_list and int(item) not in game_list: #add items that are not already recommended and not in the user's game list
                         recommendation_list.append(item)
-    
+                        
     return recommendation_list
                 
 if __name__ == "__main__":
     game_list = api_call()
     final_list = gen_recommendations(game_list)
-    print(translate(final_list))
+    for item in translate(final_list):
+        print(item.strip("\""))
 

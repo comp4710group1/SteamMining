@@ -4,10 +4,10 @@ import requests
 import csv
 import time
 
-f = open('../AppScripts/game_id_lookup.csv', 'r', errors="ignore")
+f = open('../CSVFiles/game_id_lookup.csv', 'r', errors="ignore")
 line = f.readline()
 
-f2 = open('./game_tag_list.csv', 'w', newline='')
+f2 = open('../CSVFiles/game_tag_list.csv', 'w', newline='')
 writer = csv.writer(f2)
 
 while line:
