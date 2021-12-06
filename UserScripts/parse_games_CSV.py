@@ -1,10 +1,10 @@
 import csv
 
-f = open('./game_list.csv', 'r', errors="ignore")
+f = open('../CSVFiles/game_list.csv', 'r', errors="ignore")
 #Read lines to get rid of headers
 f.readline()
 line = f.readline()
-f2 = open('./game_list_parsed.csv', 'w', newline='')
+f2 = open('../CSVFiles/game_list_parsed.csv', 'w', newline='')
 writer = csv.writer(f2)
 
 output = {}

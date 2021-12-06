@@ -4,12 +4,14 @@ import re
 from appid_to_name import translate
 
 #steam id to recommend for
+#CHANGE THIS TO YOUR STEAM_ID
 STEAM_ID = 76561198092171249
 #you should never put your api key out in public but whatever
 API_KEY = '09FEA56EF1B8EDD4A8602AC5AB529C72'
 
 f = open('../FPGrowthScripts/dataset/data_games.csv', 'r')
 
+print("List of Recommended Games:")
 
 def api_call():
     game_list = []
@@ -48,11 +50,12 @@ def gen_recommendations(game_list):
                 for item in pattern: #look through each item in that frequent pattern
                     if item not in recommendation_list and int(item) not in game_list: #add items that are not already recommended and not in the user's game list
                         recommendation_list.append(item)
-    
+                        
     return recommendation_list
                 
 if __name__ == "__main__":
     game_list = api_call()
     final_list = gen_recommendations(game_list)
-    print(translate(final_list))
+    for item in translate(final_list):
+        print(item.strip("\""))
 

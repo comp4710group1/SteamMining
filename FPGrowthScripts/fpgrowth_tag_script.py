@@ -10,7 +10,7 @@ item_set_list= []
 f = open('./dataset/data_tags.csv', 'w', newline='')
 writer = csv.writer(f, quotechar=' ')
 
-with open('../TagScripts/game_tag_list.csv') as f:
+with open('../CSVFiles/game_tag_list.csv') as f:
     for line in f:
         #put line into list split on commas
         num_list = line.split(',')
