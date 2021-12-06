@@ -11,6 +11,9 @@ We are going to compare game recommendations based on the data available. For ex
 - Python to run the algorithm scripts
   - This project was tested on python 3.10.0
 
+## Want To Test The Recommendations?
+Refer to the 3 "Recommending" scripts under script calls. You can try running any of those with the files default values, and the recommended games will be printed to standard output. You can also change the STEAM_ID value at the top of file to check recommendations for different steam users (note: their accounts must be public). Keep in mind though, Steam's API is very finicky and will occasionally just not give a response. 
+
 ## API Calls
 
 ### Terms
@@ -367,8 +370,6 @@ Calling from the top level directory:
 Results are written to standard output
 
 </details>
-
-
 
 
 ## Resources
